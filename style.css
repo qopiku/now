@@ -1,0 +1,59 @@
+body,
+html {
+    height: 100%;
+    background: #FFFFFF;
+    overflow: hidden;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.full-table {
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+
+.table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.card {
+    padding: 10px 50px 10px 50px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: rgb(55, 53, 47);
+    display: inline-block;
+}
+
+.clock {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+}
+
+.time {
+    display: inline-block;
+    min-width: 37px;
+}
+
+.colon {
+    font-size: 1.1em;
+    display: inline-block;
+}
+
+.date {
+    min-width: 162px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    margin-bottom: 20px
+}
+
+.greet {
+    font-family: 'Roboto', sans-serif;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
