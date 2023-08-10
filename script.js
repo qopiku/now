@@ -1,57 +1,35 @@
-function date() {
-    var today = new Date();
-    document.getElementById('date').innerHTML = today.toDateString();
-}
-
-function clock() {
-    var today = new Date();
-    var hour = zeros(twelveHour(today.getHours()));
-    var minutes = zeros(today.getMinutes());
-    var seconds = zeros(today.getSeconds());
-
-    if (today.getHours() >= 12) {
-        seconds += " pm";
-    } else {
-        seconds += " am";
-    }
-
-    var hrs = today.getHours();
-    if (hrs < 12) {
-        greet = 'Good Morning  ';
-    } else if (hrs >= 12 && hrs <= 17) {
-        greet = 'Good Afternoon ';
-    } else if (hrs >= 17 && hrs <= 24) {
-        greet = 'Good Evening  ';
-    }
-
-    document.getElementById('greet').innerHTML = greet;
-    document.getElementById('hour').innerHTML = hour;
-    document.getElementById('min').innerHTML = minutes;
-    document.getElementById('sec').innerHTML = seconds;
-}
-
 function twelveHour(hour) {
-    if (hour > 12) {
-        return hour -= 12;
-    } else if (hour === 0) {
-        return hour = 12;
-    } else {
-        return hour;
-    }
-}
-
-function zeros(num) {
-    if (num < 10) {
-        num = '0' + num;
-    }
-
-    return num;
+  return hour > 12 ? hour - 12 : hour === 0 ? 12 : hour;
 }
 
 function dateTime() {
-    date();
-    clock();
-    setTimeout(dateTime, 500);
+  var today = new Date();
+  var hours = today.getHours();
+  var hour = twelveHour(hours).toString().padStart(2, "0");
+  var minutes = today.getMinutes().toString().padStart(2, "0");
+  var seconds = today.getSeconds().toString().padStart(2, "0");
+
+  if (today.getHours() >= 12) {
+    seconds += " PM";
+  } else {
+    seconds += " AM";
+  }
+
+  if (hours < 12) {
+    greet = "Good Morning";
+  } else if (hours >= 12 && hours <= 17) {
+    greet = "Good Afternoon";
+  } else if (hours >= 17 && hours <= 24) {
+    greet = "Good Evening";
+  }
+
+  document.getElementById("date").innerHTML = today.toDateString();
+  document.getElementById("greet").innerHTML = greet;
+  document.getElementById("hour").innerHTML = hour;
+  document.getElementById("min").innerHTML = minutes;
+  document.getElementById("sec").innerHTML = seconds;
+
+  setTimeout(dateTime, 500);
 }
 
 dateTime();
